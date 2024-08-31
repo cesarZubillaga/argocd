@@ -9,6 +9,6 @@ releases:
   version: 4.11.2
   values:
     - controller:
-        replicaCount: 2
+        replicaCount: 3
         service:
           type: LoadBalancer
