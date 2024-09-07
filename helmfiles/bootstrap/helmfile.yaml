@@ -5,6 +5,12 @@ repositories:
   url: https://prometheus-community.github.io/helm-charts
 - name: bitnami
   url: https://charts.bitnami.com/bitnami
+- name: metrics-server
+  url: https://kubernetes-sigs.github.io/metrics-server/
+- name: prometheus-community
+  url: https://prometheus-community.github.io/helm-charts
+- name: banzaicloud-stable
+  url: https://kubernetes-charts.banzaicloud.com
 releases:
 - name: prometheus
   namespace: prometheus
@@ -19,3 +25,27 @@ releases:
     - auth:
         username: secret-user
         password: secret-password
+- name: metrics-server
+  chart: metrics-server/metrics-server
+  namespace: kube-system
+  createNamespace: true
+  version: 3.12.1
+  labels:
+    component: metrics
+    group: monitoring
+- name: logging-operator
+  chart: banzaicloud-stable/logging-operator
+  namespace: logging-operator
+  createNamespace: true
+  version: 3.17.10
+  labels:
+    component: logging
+    group: cluster
+- name: kps
+  chart: prometheus-community/kube-prometheus-stack
+  namespace: monitoring
+  createNamespace: true
+  version: 62.3.1
+  labels:
+    component: kps
+    group: monitoring
