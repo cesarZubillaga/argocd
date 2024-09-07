@@ -6,15 +6,6 @@ repositories:
 - name: bitnami
   url: https://charts.bitnami.com/bitnami
 releases:
-- name: ingress-nginx
-  namespace: ingress-nginx
-  chart: ingress-nginx/ingress-nginx
-  version: 4.11.2
-  values:
-    - controller:
-        replicaCount: 3
-        service:
-          type: LoadBalancer
 - name: prometheus
   namespace: prometheus
   chart: prometheus-community/prometheus
